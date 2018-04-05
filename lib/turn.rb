@@ -23,20 +23,30 @@ def valid_move?(board, index)
 def position_taken?(board, index)
  ! (board[index] == " " || board[index] == "" || board[index] == nil)
 end
-
 def turn(board)
-puts "Please enter 1-9:"
-position = gets.strip
-index = input_to_index(position)
-if valid_move?(board, index)
-  move(board, index)
-display_board(board) 
-else
-  !valid_move?(board, index)
-  turn(board)
-  puts "Please enter 1-9:"
-display_board(board)  
-
-
+ puts "Please enter 1-9:"
+ user_input = gets.strip
+ index = input_to_index(user_input)
+  if valid_move?(board, index)
+    move(board, index)
+    display_board(board)
+  else
+    turn(board)
+    puts "Invalid move. Please enter 1-9:"
+   end
+  display_board(board)
 end
-end
+#def turn(board)
+ #puts "Please enter 1-9:"
+ #position = gets.strip
+ #index = input_to_index(position)
+  #if valid_move?(board, index)
+  #move(board, index)
+  #display_board(board) 
+ #else
+  #!valid_move?(board, index)
+  #turn(board)
+  #puts "Please enter 1-9:"
+  #display_board(board)  
+ #end
+#end
