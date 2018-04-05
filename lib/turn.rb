@@ -31,7 +31,8 @@ def turn(board)
     move(board, index)
     display_board(board)
   else
-    turn(board)
+    !valid_move?(board, index)
+    
     puts "Invalid move. Please enter 1-9:"
    end
   display_board(board)
